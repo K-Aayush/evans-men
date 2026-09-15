@@ -119,12 +119,39 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  html {
-    @apply font-sans;
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .snap-x-mandatory {
+    scroll-snap-type: x mandatory;
+  }
+  .snap-start {
+    scroll-snap-align: start;
+  }
+}
+
+::selection {
+  background: #0A0A0A;
+  color: #F5F4F0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
