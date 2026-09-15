@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Search, User, ShoppingBag, Menu } from "lucide-react";
 import { useStore } from "@/lib/store";
@@ -17,10 +18,17 @@ export default function Navbar() {
   const { openSearch, openCart, openMobileMenu, cartCount } = useStore();
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
+  const pathname = usePathname();
+
+  const isHome = pathname === "/";
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 80);
   });
+
+  // On non-home pages, the navbar should always be solid.
+  // On the home page, it starts transparent and becomes solid on scroll.
+  const isSolid = !isHome || scrolled;
 
   return (
     <motion.header
@@ -31,15 +39,15 @@ export default function Navbar() {
     >
       <motion.div
         animate={{
-          paddingTop: scrolled ? 10 : 24,
-          paddingBottom: scrolled ? 10 : 24,
-          backgroundColor: scrolled ? "rgba(10,10,10,0.85)" : "rgba(0,0,0,0)",
-          backdropFilter: scrolled ? "blur(12px)" : "blur(0px)",
-          borderBottomWidth: scrolled ? 1 : 0,
+          paddingTop: isSolid ? 10 : 24,
+          paddingBottom: isSolid ? 10 : 24,
+          backgroundColor: isSolid ? "rgba(10,10,10,0.85)" : "rgba(0,0,0,0)",
+          backdropFilter: isSolid ? "blur(12px)" : "blur(0px)",
+          borderBottomWidth: isSolid ? 1 : 0,
         }}
         transition={{ duration: 0.4, ease: "easeOut" }}
         style={{
-          borderColor: scrolled ? "rgba(255,255,255,0.08)" : "transparent",
+          borderColor: isSolid ? "rgba(255,255,255,0.08)" : "transparent",
         }}
         className="px-4 md:px-8"
       >
@@ -72,20 +80,20 @@ export default function Navbar() {
               className="text-white/80 hover:text-white transition-colors"
               aria-label="Search"
             >
-              <Search className="w-4.5 h-4.5" />
+              <Search className="w-[18px] h-[18px]" />
             </button>
             <button
               className="hidden md:block text-white/80 hover:text-white transition-colors"
               aria-label="Account"
             >
-              <User className="w-4.5 h-4.5" />
+              <User className="w-[18px] h-[18px]" />
             </button>
             <button
               onClick={openCart}
               className="text-white/80 hover:text-white transition-colors flex items-center gap-1.5"
               aria-label="Cart"
             >
-              <ShoppingBag className="w-4.5 h-4.5" />
+              <ShoppingBag className="w-[18px] h-[18px]" />
               <span className="text-[11px] font-medium tracking-wider">
                 ({cartCount})
               </span>

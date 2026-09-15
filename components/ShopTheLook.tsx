@@ -20,7 +20,7 @@ interface Hotspot {
 const hotspots: Hotspot[] = [
   { id: 'h1', slug: 'structured-overshirt', x: 50, y: 30 },
   { id: 'h2', slug: 'relaxed-denim', x: 50, y: 58 },
-  { id: 'h3', slug: 'nova-01-sneaker', x: 42, y: 85 },
+  { id: 'h3', slug: 'evans-01-sneaker', x: 42, y: 85 },
 ];
 
 export default function ShopTheLook() {
@@ -89,7 +89,7 @@ export default function ShopTheLook() {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 10, scale: 0.9 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute left-1/2 -translate-x-1/2 top-8 z-20 bg-nova-cream px-4 py-3 min-w-45 shadow-xl"
+                          className="absolute left-1/2 -translate-x-1/2 top-8 z-20 bg-nova-cream px-4 py-3 min-w-[11rem] shadow-xl"
                         >
                           <p className="text-[10px] tracking-wider uppercase text-nova-black/40 mb-1">
                             {product.categoryLabel}

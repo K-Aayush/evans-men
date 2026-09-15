@@ -1,62 +1,62 @@
-'use client';
+"use client";
 
-import { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import Navbar from '@/components/Navbar';
-import MobileMenu from '@/components/MobileMenu';
-import SearchOverlay from '@/components/SearchOverlay';
-import CartDrawer from '@/components/CartDrawer';
-import Footer from '@/components/Footer';
-import ProductCard from '@/components/ProductCard';
-import { getProducts, categories } from '@/lib/products';
-import { fadeUp } from '@/lib/animations';
+import { useState, useMemo } from "react";
+import { motion } from "framer-motion";
+import Navbar from "@/components/Navbar";
+import MobileMenu from "@/components/MobileMenu";
+import SearchOverlay from "@/components/SearchOverlay";
+import CartDrawer from "@/components/CartDrawer";
+import Footer from "@/components/Footer";
+import ProductCard from "@/components/ProductCard";
+import { getProducts, categories } from "@/lib/products";
+import { fadeUp } from "@/lib/animations";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
-import { SlidersHorizontal, X } from 'lucide-react';
-import type { Category } from '@/types';
+} from "@/components/ui/select";
+import { SlidersHorizontal, X } from "lucide-react";
+import type { Category } from "@/types";
 
-const filterCategories: { id: Category | 'all'; label: string }[] = [
-  { id: 'all', label: 'All' },
+const filterCategories: { id: Category | "all"; label: string }[] = [
+  { id: "all", label: "All" },
   ...categories.map((c) => ({ id: c.id, label: c.label })),
 ];
 
 const sortOptions = [
-  { value: 'featured', label: 'Featured' },
-  { value: 'newest', label: 'Newest' },
-  { value: 'price-asc', label: 'Price: Low to High' },
-  { value: 'price-desc', label: 'Price: High to Low' },
+  { value: "featured", label: "Featured" },
+  { value: "newest", label: "Newest" },
+  { value: "price-asc", label: "Price: Low to High" },
+  { value: "price-desc", label: "Price: High to Low" },
 ];
 
 export default function ShopPage() {
-  const [activeCategory, setActiveCategory] = useState<Category | 'all'>('all');
-  const [sortBy, setSortBy] = useState('featured');
+  const [activeCategory, setActiveCategory] = useState<Category | "all">("all");
+  const [sortBy, setSortBy] = useState("featured");
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   const products = useMemo(() => {
     let filtered = getProducts();
-    if (activeCategory !== 'all') {
+    if (activeCategory !== "all") {
       filtered = filtered.filter((p) => p.category === activeCategory);
     }
     switch (sortBy) {
-      case 'newest':
-        filtered = [...filtered].sort((a, b) =>
-          (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0)
+      case "newest":
+        filtered = [...filtered].sort(
+          (a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0),
         );
         break;
-      case 'price-asc':
+      case "price-asc":
         filtered = [...filtered].sort((a, b) => a.price - b.price);
         break;
-      case 'price-desc':
+      case "price-desc":
         filtered = [...filtered].sort((a, b) => b.price - a.price);
         break;
       default:
         filtered = [...filtered].sort(
-          (a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0)
+          (a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0),
         );
     }
     return filtered;
@@ -73,11 +73,7 @@ export default function ShopPage() {
         {/* Header */}
         <section className="bg-nova-cream px-6 md:px-12 py-16 md:py-24">
           <div className="max-w-[1600px] mx-auto">
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp}
-            >
+            <motion.div initial="hidden" animate="visible" variants={fadeUp}>
               <p className="text-[11px] tracking-[0.2em] uppercase text-nova-black/40 mb-4">
                 — Shop
               </p>
@@ -102,8 +98,8 @@ export default function ShopPage() {
                   onClick={() => setActiveCategory(cat.id)}
                   className={`px-4 py-2 text-xs tracking-[0.12em] uppercase font-medium transition-colors ${
                     activeCategory === cat.id
-                      ? 'bg-nova-black text-nova-cream'
-                      : 'text-nova-black/50 hover:text-nova-black'
+                      ? "bg-nova-black text-nova-cream"
+                      : "text-nova-black/50 hover:text-nova-black"
                   }`}
                 >
                   {cat.label}
@@ -131,10 +127,10 @@ export default function ShopPage() {
                   if (value) setSortBy(value);
                 }}
               >
-                <SelectTrigger className="w-40 h-9 text-xs border-nova-black/20 bg-transparent">
+                <SelectTrigger className="w-40 h-9 text-xs border-nova-black/20 bg-nova-cream text-nova-black hover:bg-nova-warm">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-nova-cream border border-nova-black/10 shadow-lg">
                   {sortOptions.map((opt) => (
                     <SelectItem key={opt.value} value={opt.value}>
                       {opt.label}
@@ -150,7 +146,7 @@ export default function ShopPage() {
         <section className="bg-nova-cream px-6 md:px-12 py-10 md:py-14">
           <div className="max-w-[1600px] mx-auto">
             <p className="text-xs text-nova-black/40 mb-6">
-              {products.length} {products.length === 1 ? 'product' : 'products'}
+              {products.length} {products.length === 1 ? "product" : "products"}
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
               {products.map((product, i) => (
@@ -171,15 +167,20 @@ export default function ShopPage() {
             onClick={() => setMobileFiltersOpen(false)}
           />
           <motion.div
-            initial={{ y: '100%' }}
+            initial={{ y: "100%" }}
             animate={{ y: 0 }}
-            exit={{ y: '100%' }}
+            exit={{ y: "100%" }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="absolute bottom-0 left-0 right-0 bg-nova-cream p-6 max-h-[70vh] overflow-y-auto"
           >
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-sm font-bold tracking-[0.15em] uppercase">Filter</h3>
-              <button onClick={() => setMobileFiltersOpen(false)} aria-label="Close filters">
+              <h3 className="text-sm font-bold tracking-[0.15em] uppercase">
+                Filter
+              </h3>
+              <button
+                onClick={() => setMobileFiltersOpen(false)}
+                aria-label="Close filters"
+              >
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -193,8 +194,8 @@ export default function ShopPage() {
                   }}
                   className={`w-full text-left px-4 py-3 text-sm tracking-wide border transition-colors ${
                     activeCategory === cat.id
-                      ? 'bg-nova-black text-nova-cream border-nova-black'
-                      : 'border-nova-black/15 text-nova-black/70'
+                      ? "bg-nova-black text-nova-cream border-nova-black"
+                      : "border-nova-black/15 text-nova-black/70"
                   }`}
                 >
                   {cat.label}

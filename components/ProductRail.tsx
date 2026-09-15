@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { useRef } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
-import ProductCard from '@/components/ProductCard';
-import { getProducts } from '@/lib/products';
-import type { Product } from '@/types';
+import { useRef } from "react";
+import { motion } from "framer-motion";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import ProductCard from "@/components/ProductCard";
+import { getProducts } from "@/lib/products";
+import type { Product } from "@/types";
 
 interface ProductRailProps {
   title?: string;
@@ -13,18 +13,18 @@ interface ProductRailProps {
 }
 
 export default function ProductRail({
-  title = 'The New Drop',
+  title = "The New Drop",
   products,
 }: ProductRailProps) {
   const railRef = useRef<HTMLDivElement>(null);
   const items = products || getProducts().slice(0, 7);
 
-  const scroll = (dir: 'left' | 'right') => {
+  const scroll = (dir: "left" | "right") => {
     if (!railRef.current) return;
     const amount = railRef.current.clientWidth * 0.7;
     railRef.current.scrollBy({
-      left: dir === 'left' ? -amount : amount,
-      behavior: 'smooth',
+      left: dir === "left" ? -amount : amount,
+      behavior: "smooth",
     });
   };
 
@@ -43,14 +43,14 @@ export default function ProductRail({
           </motion.h2>
           <div className="hidden md:flex items-center gap-3">
             <button
-              onClick={() => scroll('left')}
+              onClick={() => scroll("left")}
               className="w-11 h-11 border border-nova-black/20 flex items-center justify-center hover:bg-nova-black hover:text-nova-cream transition-colors"
               aria-label="Scroll left"
             >
               <ArrowLeft className="w-4 h-4" />
             </button>
             <button
-              onClick={() => scroll('right')}
+              onClick={() => scroll("right")}
               className="w-11 h-11 border border-nova-black/20 flex items-center justify-center hover:bg-nova-black hover:text-nova-cream transition-colors"
               aria-label="Scroll right"
             >
@@ -62,12 +62,12 @@ export default function ProductRail({
 
       <div
         ref={railRef}
-        className="flex gap-5 md:gap-8 overflow-x-auto no-scrollbar snap-x-mandatory px-6 md:px-12 pb-4"
+        className="flex gap-4 md:gap-6 overflow-x-auto no-scrollbar snap-x-mandatory px-6 md:px-12 pb-4"
       >
         {items.map((product, i) => (
           <div
             key={product.id}
-            className="snap-start shrink-0 w-[75vw] sm:w-[45vw] md:w-85 lg:w-75"
+            className="snap-start shrink-0 w-[80vw] sm:w-[45vw] md:w-[calc(33.333vw-2rem)] lg:w-[calc(25vw-2.25rem)] xl:w-[calc(20vw-2.4rem)]"
           >
             <ProductCard product={product} index={i} />
           </div>

@@ -7,7 +7,7 @@ import { getProducts, formatPrice } from "@/lib/products";
 import { imageReveal, fadeUp, staggerChildren } from "@/lib/animations";
 
 export default function FeaturedProduct() {
-  const product = getProducts().find((p) => p.slug === "nova-01-sneaker");
+  const product = getProducts().find((p) => p.slug === "evans-01-sneaker");
   if (!product) return null;
 
   return (
@@ -18,6 +18,7 @@ export default function FeaturedProduct() {
           <motion.div
             initial="hidden"
             whileInView="visible"
+            onViewportEnter={() => console.log("entered viewport")}
             viewport={{ once: true, amount: 0.2 }}
             variants={imageReveal}
             className="md:col-span-8"
@@ -52,7 +53,7 @@ export default function FeaturedProduct() {
               variants={fadeUp}
               className="text-5xl md:text-6xl font-bold tracking-[-0.03em] text-white leading-[0.95] mb-4"
             >
-              The Nova 01
+              The Evan 01
             </motion.h2>
             <motion.p
               variants={fadeUp}

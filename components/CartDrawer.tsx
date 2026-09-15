@@ -33,7 +33,7 @@ export default function CartDrawer() {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed top-0 right-0 bottom-0 z-70 w-full sm:w-110 bg-nova-cream flex flex-col"
+            className="fixed top-0 right-0 bottom-0 z-70 w-full sm:w-[28rem] bg-nova-cream flex flex-col"
           >
             {/* Header */}
             <div className="flex items-center justify-between px-6 py-5 border-b border-nova-black/10">
