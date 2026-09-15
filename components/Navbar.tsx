@@ -47,7 +47,7 @@ export default function Navbar() {
           {/* Left: Logo */}
           <Link href="/" className="group">
             <span className="text-xl md:text-2xl font-bold tracking-[0.2em] text-white">
-              NOVA
+              Evan
             </span>
           </Link>
 

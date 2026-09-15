@@ -11,7 +11,7 @@ import ProductRail from "@/components/ProductRail";
 import CategoryReveal from "@/components/CategoryReveal";
 import Lookbook from "@/components/Lookbook";
 import ShopTheLook from "@/components/ShopTheLook";
-import FullscreenCampaign from "@/components/FullScreenCampaign";
+import FullscreenCampaign from "@/components/FullscreenCampaign";
 import NewArrivals from "@/components/NewArrivals";
 import Footer from "@/components/Footer";
 

@@ -23,7 +23,7 @@ const brandLinks = [
 
 export default function Footer() {
   return (
-    <footer id="about" className="bg-nova-black text-white overflow-hidden">
+    <footer id="about" className="bg-nova-black text-white overflow-hidden bg-[#2f2f2c]">
       {/* Big text */}
       <div className="px-6 md:px-12 pt-20 md:pt-32 pb-12 md:pb-16">
         <div className="max-w-[1600px] mx-auto">

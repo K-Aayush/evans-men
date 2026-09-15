@@ -85,7 +85,7 @@ export default function ShopPage() {
                 Shop All
               </h1>
               <p className="text-sm text-nova-black/50 mt-4 max-w-md">
-                Everything from NOVA.
+                Everything from Evan.
               </p>
             </motion.div>
           </div>
