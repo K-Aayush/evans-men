@@ -45,10 +45,10 @@ function loadFromStorage<T>(key: string, fallback: T): T {
 
 export function StoreProvider({ children }: { children: React.ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>(() =>
-    loadFromStorage<CartItem[]>('nova-cart', [])
+    loadFromStorage<CartItem[]>('evans-cart', [])
   );
   const [wishlist, setWishlist] = useState<WishlistItem[]>(() =>
-    loadFromStorage<WishlistItem[]>('nova-wishlist', [])
+    loadFromStorage<WishlistItem[]>('evans-wishlist', [])
   );
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -57,7 +57,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   // Persist cart to localStorage whenever it changes.
   useEffect(() => {
     try {
-      localStorage.setItem('nova-cart', JSON.stringify(cart));
+      localStorage.setItem('evans-cart', JSON.stringify(cart));
     } catch {
       // ignore
     }
@@ -66,7 +66,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   // Persist wishlist to localStorage whenever it changes.
   useEffect(() => {
     try {
-      localStorage.setItem('nova-wishlist', JSON.stringify(wishlist));
+      localStorage.setItem('evans-wishlist', JSON.stringify(wishlist));
     } catch {
       // ignore
     }

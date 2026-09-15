@@ -6,8 +6,8 @@ const PX = (id: string, w = 940, h = 1250) =>
 export const mockProducts: Product[] = [
   {
     id: '1',
-    slug: 'nova-relaxed-shirt',
-    name: 'Nova Relaxed Shirt',
+    slug: 'evans-relaxed-shirt',
+    name: 'Evans Relaxed Shirt',
     category: 'shirts',
     categoryLabel: 'Shirts',
     price: 4490,
@@ -23,8 +23,8 @@ export const mockProducts: Product[] = [
   },
   {
     id: '2',
-    slug: 'nova-heavyweight-tee',
-    name: 'Nova Heavyweight Tee',
+    slug: 'evans-heavyweight-tee',
+    name: 'Evans Heavyweight Tee',
     category: 'tshirts',
     categoryLabel: 'T-Shirts',
     price: 2490,
@@ -102,8 +102,8 @@ export const mockProducts: Product[] = [
   },
   {
     id: '7',
-    slug: 'nova-01-sneaker',
-    name: 'Nova 01 Sneaker',
+    slug: 'evans-01-sneaker',
+    name: 'Evans 01 Sneaker',
     category: 'sneakers',
     categoryLabel: 'Sneakers',
     price: 7990,
@@ -240,8 +240,8 @@ export const mockProducts: Product[] = [
   },
   {
     id: '16',
-    slug: 'nova-runner-sneaker',
-    name: 'Nova Runner Sneaker',
+    slug: 'evans-runner-sneaker',
+    name: 'Evans Runner Sneaker',
     category: 'sneakers',
     categoryLabel: 'Sneakers',
     price: 6990,
