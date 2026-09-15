@@ -7,6 +7,7 @@ import { ArrowRight, ShoppingBag, Heart } from "lucide-react";
 import { formatPrice } from "@/lib/products";
 import { useStore } from "@/lib/store";
 import type { Product } from "@/types";
+import { viewportOnce } from "@/lib/animations";
 
 interface ProductCardProps {
   product: Product;
@@ -28,7 +29,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
+      viewport={viewportOnce}
       transition={{
         duration: 0.6,
         delay: (index % 4) * 0.08,

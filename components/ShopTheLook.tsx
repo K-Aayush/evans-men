@@ -6,6 +6,7 @@ import { Plus } from 'lucide-react';
 import ProductQuickView from '@/components/ProductQuickView';
 import { getProductBySlug, formatPrice } from '@/lib/products';
 import type { Product } from '@/types';
+import { viewportOnce } from '@/lib/animations';
 
 const LOOK_IMAGE =
   'https://images.pexels.com/photos/8505250/pexels-photo-8505250.jpeg?auto=compress&cs=tinysrgb&w=1200';
@@ -33,7 +34,7 @@ export default function ShopTheLook() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={viewportOnce}
           transition={{ duration: 0.7 }}
           className="mb-12 md:mb-16"
         >
@@ -123,7 +124,7 @@ export default function ShopTheLook() {
                   key={spot.id}
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
+                  viewport={viewportOnce}
                   transition={{ duration: 0.5 }}
                   onClick={() => setQuickView(product)}
                   className="group flex items-center gap-4 py-4 border-b border-white/10 w-full text-left hover:pl-2 transition-all"

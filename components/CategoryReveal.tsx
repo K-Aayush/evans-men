@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { categories } from '@/lib/products';
+import { viewportOnce } from '@/lib/animations';
 
 export default function CategoryReveal() {
   const [hovered, setHovered] = useState<number | null>(null);
@@ -15,7 +16,7 @@ export default function CategoryReveal() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={viewportOnce}
           transition={{ duration: 0.7 }}
           className="mb-12 md:mb-16"
         >
@@ -61,7 +62,7 @@ export default function CategoryReveal() {
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.5 }}
+                  viewport={viewportOnce}
                   transition={{ duration: 0.6, delay: i * 0.08 }}
                   className="flex items-center justify-between py-6 md:py-10 transition-all duration-300"
                   style={{

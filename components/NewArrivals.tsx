@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import ProductCard from '@/components/ProductCard';
 import { getNewArrivals } from '@/lib/products';
-import { fadeUp } from '@/lib/animations';
+import { fadeUp, viewportOnce } from '@/lib/animations';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
@@ -16,7 +16,7 @@ export default function NewArrivals() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={viewportOnce}
           variants={fadeUp}
           className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-4"
         >

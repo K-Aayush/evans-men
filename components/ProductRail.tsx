@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import { getProducts } from "@/lib/products";
 import type { Product } from "@/types";
+import { viewportOnce } from "@/lib/animations";
 
 interface ProductRailProps {
   title?: string;
@@ -35,7 +36,7 @@ export default function ProductRail({
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={viewportOnce}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="text-4xl md:text-6xl font-bold tracking-[-0.03em] text-nova-black"
           >

@@ -1,5 +1,6 @@
 "use client";
 
+import { viewportOnce } from "@/lib/animations";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
@@ -30,7 +31,7 @@ export default function Footer() {
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={viewportOnce}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           >
             <p className="text-[11px] tracking-[0.2em] uppercase text-white/40 mb-8">
@@ -51,7 +52,7 @@ export default function Footer() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {/* Brand */}
             <div className="col-span-2 md:col-span-1">
-              <p className="text-xl font-bold tracking-[0.2em] mb-4">NOVA</p>
+              <p className="text-xl font-bold tracking-[0.2em] mb-4">EVAN</p>
               <p className="text-xs text-white/40 leading-relaxed max-w-xs">
                 Contemporary menswear built for everyday movement. Designed in
                 Nepal.
