@@ -211,7 +211,7 @@ export default function ProductPage({
                 <div className="mt-8 space-y-3">
                   <button
                     onClick={handleAddToCart}
-                    className="w-full h-13 py-4 bg-nova-black text-nova-cream text-xs tracking-[0.15em] uppercase font-medium hover:bg-nova-charcoal transition-colors flex items-center justify-center gap-2"
+                    className="w-full h-[3.25rem] py-4 bg-nova-black text-nova-cream text-xs tracking-[0.15em] uppercase font-medium hover:bg-nova-charcoal transition-colors flex items-center justify-center gap-2"
                   >
                     <ShoppingBag className="w-4 h-4" />
                     Add to Bag

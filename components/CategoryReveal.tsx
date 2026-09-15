@@ -34,7 +34,7 @@ export default function CategoryReveal() {
               <motion.div
                 key={hovered}
                 initial={{ opacity: 0, scale: 1.05 }}
-                animate={{ opacity: 0.25, scale: 1 }}
+                animate={{ opacity: 0.5, scale: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5, ease: 'easeOut' }}
                 className="absolute right-0 top-0 w-[40%] h-full pointer-events-none overflow-hidden hidden md:block"

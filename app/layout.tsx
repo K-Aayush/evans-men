@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import { StoreProvider } from "@/lib/store";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
 
 const inter = Inter({
   variable: "--font-inter",

@@ -52,7 +52,7 @@ function QuickViewCard({ product, onClose }: QuickViewCardProps) {
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: 40, scale: 0.96 }}
       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-90 w-[92vw] md:w-200 max-h-[88vh] bg-nova-cream overflow-y-auto"
+      className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-90 w-[92vw] md:w-[50rem] max-h-[88vh] bg-nova-cream overflow-y-auto"
     >
       <button
         onClick={onClose}
@@ -112,7 +112,7 @@ function QuickViewCard({ product, onClose }: QuickViewCardProps) {
                 <button
                   key={size}
                   onClick={() => setSelectedSize(size)}
-                  className={`min-w-11 h-10 px-3 text-sm border transition-colors ${
+                  className={`min-w-[2.75rem] h-10 px-3 text-sm border transition-colors ${
                     selectedSize === size
                       ? 'bg-nova-black text-nova-cream border-nova-black'
                       : 'border-nova-black/20 text-nova-black hover:border-nova-black'

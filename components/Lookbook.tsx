@@ -102,7 +102,7 @@ export default function Lookbook() {
       </div>
 
       <Dialog open={selected !== null} onOpenChange={(open) => !open && setSelected(null)}>
-        <DialogContent className="max-w-[90vw] md:max-w-200 p-0 bg-nova-black border-none overflow-hidden">
+        <DialogContent className="max-w-[90vw] md:max-w-[50rem] p-0 bg-nova-black border-none overflow-hidden">
           {selected !== null && (
             <div className="w-full h-[80vh] flex items-center justify-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
