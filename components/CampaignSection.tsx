@@ -3,7 +3,12 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { imageReveal, fadeUp, staggerChildren } from "@/lib/animations";
+import {
+  imageReveal,
+  fadeUp,
+  staggerChildren,
+  viewportOnce,
+} from "@/lib/animations";
 
 const IMG_LEFT =
   "https://images.pexels.com/photos/15568482/pexels-photo-15568482.jpeg?auto=compress&cs=tinysrgb&w=1200";
@@ -28,7 +33,7 @@ export default function CampaignSection() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={viewportOnce}
               variants={imageReveal}
               className="relative aspect-3/4 md:aspect-4/5 overflow-hidden"
             >

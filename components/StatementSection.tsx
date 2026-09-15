@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { lineReveal, imageReveal } from "@/lib/animations";
+import { lineReveal, imageReveal, viewportOnce } from "@/lib/animations";
 
 const IMG_LEFT =
   "https://images.pexels.com/photos/28640766/pexels-photo-28640766.jpeg?auto=compress&cs=tinysrgb&w=900";
@@ -15,7 +15,7 @@ export default function StatementSection() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={viewportOnce}
           variants={lineReveal}
           className="mb-2"
         >
@@ -29,7 +29,7 @@ export default function StatementSection() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportOnce}
             variants={imageReveal}
             className="lg:col-span-5 order-2 lg:order-1"
           >
@@ -51,7 +51,7 @@ export default function StatementSection() {
                   key={line}
                   initial={{ opacity: 0, y: 80 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.5 }}
+                  viewport={viewportOnce}
                   transition={{
                     duration: 0.9,
                     ease: [0.22, 1, 0.36, 1],
@@ -70,7 +70,7 @@ export default function StatementSection() {
                   key={line}
                   initial={{ opacity: 0, y: 60 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.5 }}
+                  viewport={viewportOnce}
                   transition={{
                     duration: 0.9,
                     ease: [0.22, 1, 0.36, 1],
@@ -90,7 +90,7 @@ export default function StatementSection() {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={viewportOnce}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="order-2 md:order-1 max-w-md"
           >
@@ -107,7 +107,7 @@ export default function StatementSection() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportOnce}
             variants={imageReveal}
             className="order-1 md:order-2"
           >

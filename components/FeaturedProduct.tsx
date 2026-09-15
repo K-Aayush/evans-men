@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { getProducts, formatPrice } from "@/lib/products";
-import { imageReveal, fadeUp, staggerChildren } from "@/lib/animations";
+import { imageReveal, fadeUp, staggerChildren, viewportOnce } from "@/lib/animations";
 
 export default function FeaturedProduct() {
   const product = getProducts().find((p) => p.slug === "evans-01-sneaker");
@@ -18,8 +18,7 @@ export default function FeaturedProduct() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            onViewportEnter={() => console.log("entered viewport")}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportOnce}
             variants={imageReveal}
             className="md:col-span-8"
           >
@@ -39,7 +38,7 @@ export default function FeaturedProduct() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={viewportOnce}
             variants={staggerChildren}
             className="md:col-span-4 flex flex-col justify-center"
           >

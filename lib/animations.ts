@@ -1,4 +1,4 @@
-import { Variants } from 'framer-motion';
+import { Variants } from "framer-motion";
 
 export const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -13,7 +13,7 @@ export const fadeIn: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { duration: 1, ease: 'easeOut' },
+    transition: { duration: 1, ease: "easeOut" },
   },
 };
 
@@ -36,9 +36,9 @@ export const slideInRight: Variants = {
 };
 
 export const imageReveal: Variants = {
-  hidden: { clipPath: 'inset(100% 0% 0% 0%)', opacity: 0 },
+  hidden: { clipPath: "inset(100% 0% 0% 0%)", opacity: 0 },
   visible: {
-    clipPath: 'inset(0% 0% 0% 0%)',
+    clipPath: "inset(0% 0% 0% 0%)",
     opacity: 1,
     transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] },
   },
@@ -82,3 +82,9 @@ export const lineReveal: Variants = {
     transition: { duration: 1, ease: [0.22, 1, 0.36, 1] },
   },
 };
+
+export const viewportOnce = {
+  once: true,
+  amount: 0,
+  margin: "0px 0px -15% 0px",
+} as const;

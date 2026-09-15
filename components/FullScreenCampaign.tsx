@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { viewportOnce } from '@/lib/animations';
 
 const BG_IMAGE =
   'https://images.pexels.com/photos/28251205/pexels-photo-28251205.jpeg?auto=compress&cs=tinysrgb&w=1920';
@@ -41,7 +42,7 @@ export default function FullscreenCampaign() {
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={viewportOnce}
           transition={{ duration: 0.8 }}
           className="text-[11px] tracking-[0.3em] uppercase text-white/60 mb-8"
         >
@@ -54,7 +55,7 @@ export default function FullscreenCampaign() {
               key={line}
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
+              viewport={viewportOnce}
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: i * 0.15 }}
               className="text-[14vw] md:text-[10vw] lg:text-[9rem] font-bold tracking-[-0.04em] leading-[0.9] text-white"
             >
